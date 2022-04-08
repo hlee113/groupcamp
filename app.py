@@ -12,8 +12,8 @@ load_dotenv(find_dotenv())
 # PROD configs
 app = Flask(__name__)
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DBCONNECTION']    #use this for Heroku
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')     # local test
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DBCONNECTION']    #use this for Heroku
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')     # local test
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DBCONNECTION']
