@@ -1,10 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request, session, flash
-from datetime import timedelta
 from flask_sqlalchemy import SQLAlchemy
-from flask_mail import Mail, Message
 import os
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
-import random
 from dotenv import load_dotenv,find_dotenv
 load_dotenv(find_dotenv())
 
@@ -12,9 +9,9 @@ load_dotenv(find_dotenv())
 # PROD configs
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['HEROKU_POSTGRESQL_GOLD_URL']    #use this for Heroku
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['HEROKU_POSTGRESQL_GOLD_URL']    #use this for Heroku
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DBCONNECTION']    #use this for Heroku
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')     # local test
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')     # local test
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DBCONNECTION']
